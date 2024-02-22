@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SDWebImageSwiftUI
 
 struct MoviesGridView: View {
     private let adaptiveColumn = [
@@ -13,27 +14,40 @@ struct MoviesGridView: View {
     ]
     
     @StateObject private var viewModel = MoviesViewModel()
+    @State var selectedItem: Int?
     
     var body: some View {
-        
-        ScrollView{
-            LazyVGrid(columns: adaptiveColumn, spacing: 20) {
-                ForEach(viewModel.movies, id: \.self) { item in
-                    Text(String(item.originalTitle))
-                        .frame(width: 150, height: 150, alignment: .center)
-                        .background(.blue)
-                        .cornerRadius(10)
-                        .foregroundColor(.white)
-                        .font(.title)
+        GeometryReader { geometry in
+            ScrollView{
+                LazyVGrid(columns: adaptiveColumn, spacing: 5) {
+                    ForEach(Array(viewModel.movies.enumerated()), id: \.element.id) { index, item in
+                        Button(action: {
+                            selectedItem = index
+                        }) {
+                            AnimatedImage(url: URL(string: item.posterImagePath), isAnimating: .constant(true))
+                                .resizable()
+                                .frame(width: geometry.size.width/2 - 5, height: geometry.size.width/2 - 5, alignment: .center)
+                                .cornerRadius(10)
+                                .font(.title)
+                                .scaledToFill()
+                        }
+                    }
                 }
-            }
-        }.padding()
+            }.padding(.all, 5)
+        }
         .onAppear {
             viewModel.fetchMovies()
         }
+        .fullScreenCover(item: $selectedItem, content: { selectedItem in
+            ReelsContainerView(movies: viewModel.movies, itemIndex: selectedItem)
+        })
     }
 }
 
 #Preview {
     MoviesGridView()
+}
+
+extension Int: Identifiable {
+    public var id: Int { return self }
 }

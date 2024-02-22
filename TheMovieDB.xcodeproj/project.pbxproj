@@ -21,6 +21,8 @@
 		849008242B85AFE60056729C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849008232B85AFE60056729C /* Assets.xcassets */; };
 		849008272B85AFE60056729C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849008262B85AFE60056729C /* Preview Assets.xcassets */; };
 		849008322B85B9110056729C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849008312B85B9110056729C /* Constants.swift */; };
+		A8B4EDA92B879B0A00EC3333 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B4EDA82B879B0A00EC3333 /* MovieDetailView.swift */; };
+		A8B4EDAB2B879D8200EC3333 /* ReelsContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B4EDAA2B879D8200EC3333 /* ReelsContainerView.swift */; };
 		CCE54A3F6CD19F97207D0091 /* Pods_TheMovieDB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 979AB2BC203EFD2189D95C94 /* Pods_TheMovieDB.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +44,8 @@
 		849008262B85AFE60056729C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		849008312B85B9110056729C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		979AB2BC203EFD2189D95C94 /* Pods_TheMovieDB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TheMovieDB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A8B4EDA82B879B0A00EC3333 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
+		A8B4EDAA2B879D8200EC3333 /* ReelsContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReelsContainerView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +102,8 @@
 			children = (
 				849008212B85AFD60056729C /* MoviesGridView.swift */,
 				84039F402B87852800752222 /* MoviesViewModel.swift */,
+				A8B4EDA82B879B0A00EC3333 /* MovieDetailView.swift */,
+				A8B4EDAA2B879D8200EC3333 /* ReelsContainerView.swift */,
 			);
 			path = MainView;
 			sourceTree = "<group>";
@@ -294,10 +300,12 @@
 				84039F262B8716F500752222 /* ResponseObject.swift in Sources */,
 				84039F412B87852800752222 /* MoviesViewModel.swift in Sources */,
 				84039F382B87791800752222 /* APIClient.swift in Sources */,
+				A8B4EDA92B879B0A00EC3333 /* MovieDetailView.swift in Sources */,
 				849008202B85AFD60056729C /* TheMovieDBApp.swift in Sources */,
 				84039F3E2B87826800752222 /* MoviesService.swift in Sources */,
 				84039F242B8716B100752222 /* Media.swift in Sources */,
 				849008322B85B9110056729C /* Constants.swift in Sources */,
+				A8B4EDAB2B879D8200EC3333 /* ReelsContainerView.swift in Sources */,
 				84039F2E2B876C0500752222 /* CommonError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
