@@ -8,25 +8,18 @@
 import Foundation
 import Alamofire
 
-typealias RequesMethod = Alamofire.HTTPMethod
-
-protocol ServiceAPI {
-    var rawvalue: String { get }
-    var baseURL: String { get }
-    var endpoint: String { get }
-    var headers: [String: String] { get }
-}
+typealias RequestMethod = Alamofire.HTTPMethod
 
 struct NetworkRequest {
     let service: ServiceAPI
-    let method: RequesMethod
+    let method: RequestMethod
     let decoder: JSONDecoder
     let headers: [String: String]?
     let parameters: [String: Any]?
     let encoding: ParameterEncoding
     
     init(service: ServiceAPI,
-         method: RequesMethod,
+         method: RequestMethod,
          decoder: JSONDecoder? = nil,
          headers: [String : String]? = nil,
          parameters: [String : Any]? = nil) {
