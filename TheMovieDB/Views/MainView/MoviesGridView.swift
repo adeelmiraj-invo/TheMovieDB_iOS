@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  MoviesGridView.swift
 //  TheMovieDB
 //
 //  Created by Admin on 21/02/2024.
@@ -7,18 +7,19 @@
 
 import SwiftUI
 
-struct ContentView: View {
-    private var data  = Array(1...20)
+struct MoviesGridView: View {
     private let adaptiveColumn = [
         GridItem(.adaptive(minimum: 170))
     ]
+    
+    @StateObject private var viewModel = MoviesViewModel()
     
     var body: some View {
         
         ScrollView{
             LazyVGrid(columns: adaptiveColumn, spacing: 20) {
-                ForEach(data, id: \.self) { item in
-                    Text(String(item))
+                ForEach(viewModel.movies, id: \.self) { item in
+                    Text(String(item.originalTitle))
                         .frame(width: 150, height: 150, alignment: .center)
                         .background(.blue)
                         .cornerRadius(10)
@@ -26,11 +27,13 @@ struct ContentView: View {
                         .font(.title)
                 }
             }
-            
-        } .padding()
+        }.padding()
+        .onAppear {
+            viewModel.fetchMovies()
+        }
     }
 }
 
 #Preview {
-    ContentView()
+    MoviesGridView()
 }

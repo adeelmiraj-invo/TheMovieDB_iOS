@@ -8,7 +8,7 @@
 import Foundation
 
 // MARK: - Media
-struct Media: Codable {
+struct Media: Codable, Equatable, Hashable, Identifiable {
     let adult: Bool
     let backdropPath: String
     let genreIDs: [Int]
@@ -19,6 +19,10 @@ struct Media: Codable {
     let video: Bool
     let voteAverage: Double
     let voteCount: Int
+    
+    var posterImagePath: String {
+        Constants.Paths.moviePathBaseURL + posterPath
+    }
 
     enum CodingKeys: String, CodingKey {
         case adult
@@ -33,5 +37,9 @@ struct Media: Codable {
         case title, video
         case voteAverage = "vote_average"
         case voteCount = "vote_count"
+    }
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.id == rhs.id
     }
 }

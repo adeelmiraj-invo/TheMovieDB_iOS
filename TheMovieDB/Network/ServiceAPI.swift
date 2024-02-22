@@ -42,6 +42,6 @@ enum Services: ServiceAPI {
     
     var headers: [String : String] {
         ["accept": "application/json",
-         "Authorization": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYTE5MjY1ZjI1ZWFlZTRmNWQ0MDYzMGYwZjU2OGNmNiIsInN1YiI6IjY1ZDU3Zjg2NjA5NzUwMDE4NTIzMTcxNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.1l76sXf4MxzZWJtU_xW4-wDCN2wrjADsUtuz5_tT7r4"]
+         "Authorization": "Bearer \(Constants.Keys.movieDBReadAccessToken)"]
     }
 }
