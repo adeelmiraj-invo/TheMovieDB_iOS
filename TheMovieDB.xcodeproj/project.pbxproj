@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		84039F242B8716B100752222 /* Media.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84039F232B8716B100752222 /* Media.swift */; };
 		84039F262B8716F500752222 /* ResponseObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84039F252B8716F500752222 /* ResponseObject.swift */; };
+		84039F2E2B876C0500752222 /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84039F2D2B876C0400752222 /* CommonError.swift */; };
+		84039F362B87774B00752222 /* NetworkRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84039F342B87774B00752222 /* NetworkRequest.swift */; };
 		849008202B85AFD60056729C /* TheMovieDBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8490081F2B85AFD60056729C /* TheMovieDBApp.swift */; };
 		849008222B85AFD60056729C /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849008212B85AFD60056729C /* ContentView.swift */; };
 		849008242B85AFE60056729C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 849008232B85AFE60056729C /* Assets.xcassets */; };
@@ -22,6 +24,8 @@
 		774EE9E9AC1C3ECABE4944C4 /* Pods-TheMovieDB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TheMovieDB.release.xcconfig"; path = "Target Support Files/Pods-TheMovieDB/Pods-TheMovieDB.release.xcconfig"; sourceTree = "<group>"; };
 		84039F232B8716B100752222 /* Media.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Media.swift; sourceTree = "<group>"; };
 		84039F252B8716F500752222 /* ResponseObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseObject.swift; sourceTree = "<group>"; };
+		84039F2D2B876C0400752222 /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
+		84039F342B87774B00752222 /* NetworkRequest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkRequest.swift; sourceTree = "<group>"; };
 		8490081C2B85AFD60056729C /* TheMovieDB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TheMovieDB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8490081F2B85AFD60056729C /* TheMovieDBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TheMovieDBApp.swift; sourceTree = "<group>"; };
 		849008212B85AFD60056729C /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -60,6 +64,22 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		84039F2C2B876BEE00752222 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				84039F2D2B876C0400752222 /* CommonError.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		84039F322B87774B00752222 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				84039F342B87774B00752222 /* NetworkRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		849008132B85AFD60056729C = {
 			isa = PBXGroup;
 			children = (
@@ -82,6 +102,8 @@
 			isa = PBXGroup;
 			children = (
 				8490081F2B85AFD60056729C /* TheMovieDBApp.swift */,
+				84039F2C2B876BEE00752222 /* Common */,
+				84039F322B87774B00752222 /* Network */,
 				849008302B85B8ED0056729C /* Globals */,
 				8490082E2B85B5530056729C /* Models */,
 				8490082D2B85B5430056729C /* Views */,
@@ -239,10 +261,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				849008222B85AFD60056729C /* ContentView.swift in Sources */,
+				84039F362B87774B00752222 /* NetworkRequest.swift in Sources */,
 				84039F262B8716F500752222 /* ResponseObject.swift in Sources */,
 				849008202B85AFD60056729C /* TheMovieDBApp.swift in Sources */,
 				84039F242B8716B100752222 /* Media.swift in Sources */,
 				849008322B85B9110056729C /* Constants.swift in Sources */,
+				84039F2E2B876C0500752222 /* CommonError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,12 +402,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TheMovieDB/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -391,9 +416,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tintash.TheMovieDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -407,12 +434,13 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TheMovieDB/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -420,9 +448,11 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tintash.TheMovieDB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
