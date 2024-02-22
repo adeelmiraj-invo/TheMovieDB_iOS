@@ -19,7 +19,7 @@ struct AlamofireManager {
 }
 
 class APIClient {
-    func executeRequest<T: Decodable>(request: NetworkRequest) -> AnyPublisher<T, CommonError> {
+    static func executeRequest<T: Decodable>(request: NetworkRequest) -> AnyPublisher<T, CommonError> {
         let service = request.service
         return AlamofireManager.shared
             .request(service.endpoint, method: request.method, parameters: request.parameters, encoding: request.encoding, headers: HTTPHeaders(request.headers ?? [:]))
