@@ -15,6 +15,7 @@ class MoviesViewModel: ObservableObject {
     
     private var responseObject: ResponseObject<[Media]>!
     private var cancellables = [AnyCancellable]()
+    var selectedIndex: Int?
     
     func fetchMovies() {
         let pageNumber: Int = responseObject == nil ? 1 : responseObject.page + 1

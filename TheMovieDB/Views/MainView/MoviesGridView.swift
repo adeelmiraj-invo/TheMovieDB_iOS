@@ -14,19 +14,22 @@ struct MoviesGridView: View {
     ]
     
     @StateObject private var viewModel = MoviesViewModel()
-    @State var selectedItem: Int?
+    @State private var isPresented: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
-            ScrollView{
+            ScrollView {
                 LazyVGrid(columns: adaptiveColumn, spacing: 5) {
                     ForEach(Array(viewModel.movies.enumerated()), id: \.element.id) { index, item in
                         Button(action: {
-                            selectedItem = index
+                            viewModel.selectedIndex = index
+                            isPresented = true
                         }) {
-                            AnimatedImage(url: URL(string: item.posterImagePath), isAnimating: .constant(true))
+                            AnimatedImage(url: URL(string: item.posterImagePath),
+                                          isAnimating: .constant(false))
                                 .resizable()
-                                .frame(width: geometry.size.width/2 - 5, height: geometry.size.width/2 - 5, alignment: .center)
+                                .frame(width: geometry.size.width/2 - 5,
+                                       height: geometry.size.width/2 - 5, alignment: .center)
                                 .cornerRadius(10)
                                 .font(.title)
                                 .scaledToFill()
@@ -38,8 +41,8 @@ struct MoviesGridView: View {
         .onAppear {
             viewModel.fetchMovies()
         }
-        .fullScreenCover(item: $selectedItem, content: { selectedItem in
-            ReelsContainerView(movies: viewModel.movies, itemIndex: selectedItem)
+        .fullScreenCover(isPresented: $isPresented, content: {
+            ReelsContainerView(movies: viewModel.movies, itemIndex: viewModel.selectedIndex!, isPresented: $isPresented)
         })
     }
 }

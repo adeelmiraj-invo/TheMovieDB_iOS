@@ -13,11 +13,11 @@ import SDWebImageSwiftUI
 struct MovieDetailView : View {
     @Binding var movies : [Media]
     
-    var body: some View{
-        VStack(spacing: 0){
+    var body: some View {
+        VStack(spacing: 0) {
             ForEach(0..<self.movies.count) { i in
-                ZStack{
-                        WebImage(url: URL(string: movies[i].posterImagePath), isAnimating: .constant(true))
+                ZStack {
+                    WebImage(url: URL(string: movies[i].posterImagePath), isAnimating: .constant(true))
                         .resizable()
                         .renderingMode(.original)
                         .scaledToFill()
@@ -38,7 +38,7 @@ struct MovieDetailPageView : UIViewRepresentable {
     @Binding var movies : [Media]
     @Binding var selectedItemIndex: Int
     
-    func makeUIView(context: Context) -> UIScrollView{
+    func makeUIView(context: Context) -> UIScrollView {
         
         let view = UIScrollView()
         
@@ -58,7 +58,7 @@ struct MovieDetailPageView : UIViewRepresentable {
         uiView.contentSize = CGSize(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * CGFloat((movies.count)))
         let offset = UIScreen.main.bounds.height * CGFloat(selectedItemIndex)
         uiView.setContentOffset(CGPoint(x: 0, y: offset), animated: true)
-        for i in 0..<uiView.subviews.count{
+        for i in 0..<uiView.subviews.count {
             uiView.subviews[i].frame = CGRect(x: 0, y: 0,width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height * CGFloat((movies.count)))
         }
     }
